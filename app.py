@@ -14,7 +14,8 @@ def predict():
     json_ = request.json 
     df = pd.DataFrame([json_])
     prediction = model.predict(df) 
-    return jsonify({"Prediction": list(prediction)}) 
+    prediction = prediction.tolist()
+    return jsonify({"Prediction": prediction}) 
  
 if __name__ == "__main__": 
     app.run(debug=True) 

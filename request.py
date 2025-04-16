@@ -18,7 +18,7 @@ response = requests.post(url, json=data)
 
 if response.status_code == 200: 
     prediction = response.json() 
-    print(prediction) 
+    print(f"Predicted price is: {prediction['Prediction'][0]:.2f}") 
 else: 
     print(f'API Request Failed with Status Code: {response.status_code}') 
     print(f'Response Content: {response.text}') 
